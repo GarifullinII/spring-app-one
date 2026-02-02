@@ -12,13 +12,22 @@
 <!--        <constructor-arg value="Ildar"/>-->
 <!--    </bean>-->
 
+    <context:property-placeholder location="musicPlayer.properties" />
+
     <bean id="musicBean"
           class="org.springframework.RockMusic">
     </bean>
 
     <bean id="musicPlayer"
           class="org.springframework.MusicPlayer">
-        <constructor-arg ref="musicBean"/>
+<!--        <constructor-arg ref="musicBean"/>-->
+        <property name="music" ref="musicBean"/>
+
+<!--        <property name="name" value="Some name"/>-->
+<!--        <property name="volume" value="50" />-->
+
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}" />
     </bean>
 
 </beans>
