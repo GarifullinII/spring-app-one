@@ -13,7 +13,12 @@
 <!--    </bean>-->
 
     <bean id="musicBean"
-          class="org.springframework.ClassicalMusic">
+          class="org.springframework.RockMusic">
+    </bean>
+
+    <bean id="musicPlayer"
+          class="org.springframework.MusicPlayer">
+        <constructor-arg ref="musicBean"/>
     </bean>
 
 </beans>
