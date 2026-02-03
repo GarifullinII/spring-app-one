@@ -26,6 +26,9 @@ public class TestSpring {
         System.out.println(secondMusicPlayer);
         System.out.println(comparison);
 
+        firstMusicPlayer.setVolume(100);
+        System.out.println(firstMusicPlayer.getVolume());
+        System.out.println(secondMusicPlayer.getVolume());
 
         context.close();
     }

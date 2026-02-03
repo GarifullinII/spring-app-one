@@ -19,7 +19,9 @@
     </bean>
 
     <bean id="musicPlayer"
-          class="org.springframework.MusicPlayer">
+          class="org.springframework.MusicPlayer"
+          scope="prototype"
+    >
 <!--        <constructor-arg ref="musicBean"/>-->
         <property name="music" ref="musicBean"/>
 
