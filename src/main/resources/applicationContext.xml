@@ -18,6 +18,7 @@
           class="org.springframework.ClassicalMusic"
           init-method="doMyInit"
           destroy-method="doMyDestroy"
+          factory-method="getClassicalMusic"
     >
     </bean>
 
