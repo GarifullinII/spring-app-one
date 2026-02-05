@@ -4,11 +4,17 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MusicPlayer {
+    @Autowired
     private Music music;
 
 //    private ClassicalMusic classicalMusic;
 
-    @Autowired
+//    @Autowired
+//    @Autowired
+//    public void setMusic(Music music) {
+//        this.music = music;
+//    }
+
     public MusicPlayer(Music music) {
         this.music = music;
     }
