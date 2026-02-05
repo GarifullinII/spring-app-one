@@ -7,20 +7,22 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:component-scan base-package="ru.myapp.spring" />
+
 <!--    <bean id="testBean"-->
 <!--          class="org.springframework.TestBean">-->
 <!--        <constructor-arg value="Ildar"/>-->
 <!--    </bean>-->
 
-    <context:property-placeholder location="musicPlayer.properties" />
+<!--    <context:property-placeholder location="musicPlayer.properties" />-->
 
-    <bean id="musicBean"
-          class="org.springframework.ClassicalMusic"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy"
-          factory-method="getClassicalMusic"
-    >
-    </bean>
+<!--    <bean id="musicBean"-->
+<!--          class="org.springframework.ClassicalMusic"-->
+<!--          init-method="doMyInit"-->
+<!--          destroy-method="doMyDestroy"-->
+<!--          factory-method="getClassicalMusic"-->
+<!--    >-->
+<!--    </bean>-->
 
 <!--    <bean id="musicPlayer"-->
 <!--          class="org.springframework.MusicPlayer"-->

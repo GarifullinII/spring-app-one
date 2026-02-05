@@ -1,4 +1,4 @@
-package org.springframework;
+package ru.myapp.spring;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -8,8 +8,18 @@ public class TestSpring {
                 "applicationContext.xml"
         );
 
-        ClassicalMusic classicalMusic = context.getBean("musicBean", ClassicalMusic.class);
-        System.out.println(classicalMusic.getSong() );
+        Music music = context.getBean("rockMusic", Music.class);
+        MusicPlayer musicPlayer = new MusicPlayer(music);
+        musicPlayer.playMusic();
+
+        Music musicClassical = context.getBean("classicalMusic", Music.class);
+        MusicPlayer musicClassicalPlayer = new MusicPlayer(musicClassical);
+        musicClassicalPlayer.playMusic();
+
+        context.close();
+
+//        ClassicalMusic classicalMusic = context.getBean("musicBean", ClassicalMusic.class);
+//        System.out.println(classicalMusic.getSong() );
 
         // TestBean testBean = context.getBean("testBean", TestBean.class);
         // System.out.println(testBean.getName());
@@ -32,7 +42,5 @@ public class TestSpring {
 //        firstMusicPlayer.setVolume(100);
 //        System.out.println(firstMusicPlayer.getVolume());
 //        System.out.println(secondMusicPlayer.getVolume());
-
-        context.close();
     }
 }
