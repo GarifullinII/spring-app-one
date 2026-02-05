@@ -9,6 +9,10 @@
 
     <context:component-scan base-package="ru.myapp.spring" />
 
+    <context:property-placeholder location="classpath:musicPlayer.properties" />
+
+
+
 <!--    <bean id="testBean"-->
 <!--          class="org.springframework.TestBean">-->
 <!--        <constructor-arg value="Ildar"/>-->

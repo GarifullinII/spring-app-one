@@ -1,24 +1,51 @@
 package ru.myapp.spring;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MusicPlayer {
-    private ClassicalMusic classicalMusic;
-    private RockMusic rockMusic;
+
+    @Value("${musicPlayer.name}")
+    private String name;
+
+    @Value("${musicPlayer.volume}")
+    private int volume;
+
+    public String getName() {
+        return name;
+    }
+
+    public int getVolume() {
+        return volume;
+    }
+
+    //    @Autowired
+//    @Qualifier("rockMusic")
+    private Music musicOne;
+    private Music musicTwo;
 
     @Autowired
-    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
-        this.classicalMusic = classicalMusic;
-        this.rockMusic = rockMusic;
+    public MusicPlayer(@Qualifier("rockMusic") Music musicOne, @Qualifier("rockMusic") Music musicTwo) {
+        this.musicOne = musicOne;
+        this.musicTwo = musicTwo;
     }
+
+    //    private ClassicalMusic classicalMusic;
+//    private RockMusic rockMusic;
+//
+//    @Autowired
+//    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
+//        this.classicalMusic = classicalMusic;
+//        this.rockMusic = rockMusic;
+//    }
 
     //    @Autowired
 //    private Music music;
 
 //    private ClassicalMusic classicalMusic;
 
-//    @Autowired
 //    @Autowired
 //    public void setMusic(Music music) {
 //        this.music = music;
@@ -57,6 +84,6 @@ public class MusicPlayer {
 //    public void setMusic(Music music) { this.music = music; }
 
     public String playMusic() {
-        return "Playing: " + classicalMusic.getSong();
+        return "Playing: " + musicOne.getSong() + "and " + musicTwo.getSong();
     }
 }
